@@ -1,15 +1,21 @@
 module.exports = (options, app) => {
   return async function authLogin(ctx, next){
-    console.log(ctx.url, 'ctx.url');
     const { whiteList } = options;
-    if (whiteList.includes(ctx.url)) {
+    console.log(ctx.url, 'ctx.url');
+    if (whiteList.includes(ctx.url.split('?')[0])) {
       next();
     } else {
-      //  检查是否登录
-      // ctx.body = {
-      //   success: false,
-      // }
-      next();
+      const token = ctx.header.authorization;
+      if (token) {
+        const payload = await ctx.app.jwt.verify(token, app.config.secret)  //解密，获取payload
+        ctx.name = payload.name;
+        next();
+      } else {
+        ctx.body = {
+          success: false,
+          data: '未登录',
+        };
+      }
     }
-  }
+  };
 }

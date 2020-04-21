@@ -8,4 +8,7 @@ module.exports = app => {
   console.log(app.config.env, 'app.config.env');
   router.get('/', controller.home.index);
   router.get('/user', controller.user.index);
+  router.get('/login', controller.user.login);
+  router.get('/logout', controller.user.logout);
+  router.get('/getCurrentInfo', controller.user.getCurrentInfo);
 };

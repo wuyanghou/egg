@@ -6,7 +6,12 @@ exports.mysql = {
   package: 'egg-mysql',
 };
 
-exports.swaggerdoc = {
+// exports.swaggerdoc = {
+//   enable: true,
+//   package: 'egg-swagger-doc',
+// };
+
+exports.jwt = {
   enable: true,
-  package: 'egg-swagger-doc',
+  package: 'egg-jwt',
 };

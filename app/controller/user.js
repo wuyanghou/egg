@@ -16,6 +16,31 @@ class UserController extends Controller {
     const { ctx } = this;
     ctx.body = 'hello user';
   }
+
+  async login() {
+    const { ctx, config } = this;
+    const userToken = {
+      name: ctx.request.query.name,
+    }
+    const token = ctx.app.jwt.sign(userToken, config.secret, { expiresIn: '1h' });
+    ctx.body = {
+      data: token,
+    };
+  }
+
+  async logout() {
+    const { ctx } = this;
+    ctx.body = {
+      success: true,
+      message: '登出成功',
+    };
+  }
+
+  async getCurrentInfo() {
+    const { ctx } = this;
+    ctx.logger.info('1234')
+    ctx.body = { name: ctx.name };
+  }
 }
 
 module.exports = UserController;
