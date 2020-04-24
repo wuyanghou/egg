@@ -3,13 +3,13 @@ module.exports = (options, app) => {
     const { whiteList } = options;
     console.log(ctx.url, 'ctx.url');
     if (whiteList.includes(ctx.url.split('?')[0])) {
-      next();
+      await next();
     } else {
       const token = ctx.header.authorization;
       if (token) {
         const payload = await ctx.app.jwt.verify(token, app.config.secret)  //解密，获取payload
         ctx.name = payload.name;
-        next();
+        await next();
       } else {
         ctx.body = {
           success: false,

@@ -6,12 +6,17 @@ exports.mysql = {
   package: 'egg-mysql',
 };
 
-// exports.swaggerdoc = {
-//   enable: true,
-//   package: 'egg-swagger-doc',
-// };
-
 exports.jwt = {
   enable: true,
   package: 'egg-jwt',
 };
+
+exports.validate = {
+  enable: true,
+  package: 'egg-validate',
+}
+
+exports.sequelize = {
+  enable: true,
+  package: 'egg-sequelize',
+}
