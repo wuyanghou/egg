@@ -1,8 +1,8 @@
 module.exports = (options, app) => {
   return async function authLogin(ctx, next){
     const { whiteList } = options;
-    console.log(ctx.url, 'ctx.url');
-    if (whiteList.includes(ctx.url.split('?')[0])) {
+    const url = ctx.url.split('?')[0];
+    if (whiteList.includes(url) || url.includes('swagger') || url.includes('favicon')) {
       await next();
     } else {
       const token = ctx.header.authorization;

@@ -64,8 +64,40 @@ module.exports = appInfo => {
     password: 'TYlm920606',
   };
 
+  config.swaggerdoc = {
+    dirScanner: './app/controller',
+    apiInfo: {
+      title: 'egg测试接口',
+      description: '测试接口文档',
+      version: '1.0.0',
+    },
+    schemes: [ 'http', 'https' ],
+    consumes: [ 'application/json' ],
+    produces: [ 'application/json' ],
+    securityDefinitions: {
+      apikey: {
+        type: 'apiKey',
+        name: 'authorization',
+        in: 'header',
+      },
+      // oauth2: {
+      //   type: 'oauth2',
+      //   tokenUrl: 'http://petstore.swagger.io/oauth/dialog',
+      //   flow: 'password',
+      //   scopes: {
+      //     'write:access_token': 'write access_token',
+      //     'read:access_token': 'read access_token',
+      //   },
+      // },
+    },
+    enableSecurity: false,
+    // enableValidate: true,
+    routerMap: false,
+    enable: true,
+  };
+
   exports.security = {
-    csrf: false,
+    csrf: false, // 开启的话直接post请求会报错
   };
 
 
