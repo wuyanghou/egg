@@ -35,7 +35,7 @@ module.exports = appInfo => {
         // 密码
         password: 'TYlm920606',
         // 数据库名
-        database: 'egg-test',
+        database: 'egg',
       },
       // 是否加载到 app 上，默认开启
       app: true,
