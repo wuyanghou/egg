@@ -1,11 +1,9 @@
 'use strict';
 const Controller = require('egg').Controller;
-
 const loginRule = {
   name: { type: 'string', required: true },
   pwd: { type: 'number', required: true },
 }
-
 
 /**
  * @controller 用户模块。

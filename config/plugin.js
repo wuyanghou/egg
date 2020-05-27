@@ -1,10 +1,10 @@
 'use strict';
 
 /** @type Egg.EggPlugin */
-// exports.mysql = {
-//   enable: true,
-//   package: 'egg-mysql',
-// };
+exports.mysql = {
+  enable: true,
+  package: 'egg-mysql',
+};
 
 exports.jwt = {
   enable: true,
@@ -16,10 +16,10 @@ exports.validate = {
   package: 'egg-validate',
 }
 
-// exports.sequelize = {
-//   enable: true,
-//   package: 'egg-sequelize',
-// }
+exports.sequelize = {
+  enable: true,
+  package: 'egg-sequelize',
+}
 
 exports.swaggerdoc = {
   enable: true,
