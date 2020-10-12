@@ -1,18 +1,38 @@
+'use strict';
+const cheerio = require('cheerio');
+
 module.exports = {
   schedule: {
-    interval: '1m', // 1 分钟间隔
-    // cron: '0 0 0 * * ?', // https://www.cnblogs.com/javahr/p/8318728.html
+    // interval: '1m', // 1 分钟间隔
+    cron: '0 * 9,14 * * ?', // 9-14:59 每分钟执行一次 https://www.cnblogs.com/javahr/p/8318728.html
     type: 'all', // 指定所有的 worker 都需要执行
   },
   async task(ctx) {
-    await ctx.curl('https://sc.ftqq.com/SCU43006T603ab42f430eaf2805817586a0648cb65c4916bce3883.send', {
+    // const result = await ctx.curl('http://guba.eastmoney.com/list,002006.html?from=BaiduAladdin');
+    const result = await ctx.curl('http://push2.eastmoney.com/api/qt/stock/get?invt=2&fltt=2&ut=a79f54e3d4c8d44e494efb8f748db291&secid=0.002006&fields=f43,f169,f170,f47,f48,f117,f168,f171,f162,f59,f78,f127,f198,f199,f262,f107&cb=jQuery18307362757044021409_1602475568782&_=1602475569122');
+    const data = result.data.toString().match(/\((.+?)\)/g)[0].replace('(', '').replace(')', '');
+    const parseData = JSON.parse(data);
+    const title = `精功科技${parseData.data.f43},涨跌价${parseData.data.f169},涨跌幅${parseData.data.f170}`;
+    const time = new Date();
+    const h = time.getHours();
+    const m = time.getMinutes();
+    const s = time.getSeconds();
+    const timeStr = `时间：${h}:${m}:${s}`;
+
+
+    // const htmlData = result.data.toString();
+    // const $ = cheerio.load(htmlData, {
+    //   // 处理汉字乱码情况
+    //   decodeEntities: false,
+    // });
+    // const price = $('#price9').html();
+
+    await ctx.curl('https://sc.ftqq.com/SCU117835Tf59f2299a43d58f3a208f85d8c1240b95f83f10332d72.send', {
       dataType: 'json',
       data: {
-        text: `你好${Math.random()}`,
-        desp: '今天周一',
+        text: `${title}, ${timeStr}`,
+        desp: '股票提醒',
       },
     });
-    // ctx.app.cache = res.data;
-    console.log(123);
   },
 };
