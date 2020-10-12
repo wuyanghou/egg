@@ -19,7 +19,7 @@ module.exports = appInfo => {
   const userConfig = {
     middleware: [ 'authLogin', 'errorHandler' ],
     authLogin: {
-      whiteList: [ '/login', '/logout', '/' ],
+      whiteList: [ '/login', '/logout', '/', '/wx' ],
     },
     jwt: {
       secret: '123456',

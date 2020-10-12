@@ -12,4 +12,5 @@ module.exports = app => {
   router.post('/logout', controller.user.logout);
   router.get('/getCurrentInfo', controller.user.getCurrentInfo);
   router.get('/getUserList', controller.user.getUserList);
+  router.get('/wx', controller.wx.index);
 };
