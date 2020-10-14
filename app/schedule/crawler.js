@@ -9,10 +9,10 @@ module.exports = {
   },
   async task(ctx) {
     // const result = await ctx.curl('http://guba.eastmoney.com/list,002006.html?from=BaiduAladdin');
-    const result = await ctx.curl('http://push2.eastmoney.com/api/qt/stock/get?invt=2&fltt=2&ut=a79f54e3d4c8d44e494efb8f748db291&secid=0.002006&fields=f43,f169,f170,f47,f48,f117,f168,f171,f162,f59,f78,f127,f198,f199,f262,f107&cb=jQuery18307362757044021409_1602475568782&_=1602475569122');
+    const result = await ctx.curl('http://push2.eastmoney.com/api/qt/stock/get?invt=2&fltt=2&ut=a79f54e3d4c8d44e494efb8f748db291&secid=0.002132&fields=f43,f169,f170,f47,f48,f117,f168,f171,f162,f59,f78,f127,f198,f199,f262,f107&cb=jQuery18309608347219631237_1602693509498&_=1602693509782');
     const data = result.data.toString().match(/\((.+?)\)/g)[0].replace('(', '').replace(')', '');
     const parseData = JSON.parse(data);
-    const title = `精功科技${parseData.data.f43},涨跌价${parseData.data.f169},涨跌幅${parseData.data.f170}`;
+    const title = `恒星科技${parseData.data.f43},涨跌价${parseData.data.f169},涨跌幅${parseData.data.f170}`;
     const time = new Date();
     const h = time.getHours();
     const m = time.getMinutes();
