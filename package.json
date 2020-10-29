@@ -15,7 +15,8 @@
     "egg-sequelize": "^5.2.1",
     "egg-swagger-doc": "^2.3.2",
     "egg-validate": "^2.0.2",
-    "mysql2": "^2.1.0"
+    "mysql2": "^2.1.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "autod": "^3.0.1",
