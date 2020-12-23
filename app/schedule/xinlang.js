@@ -3,8 +3,8 @@ const cheerio = require('cheerio');
 
 module.exports = {
   schedule: {
-    interval: '1m', // 1 分钟间隔
-    // cron: '0 * 10,14 * * ?', // 10-14:59 每分钟执行一次 https://www.cnblogs.com/javahr/p/8318728.html
+    // interval: '1m', // 1 分钟间隔
+    cron: '0 * 10,14 * * ?', // 10-14:59 每分钟执行一次 https://www.cnblogs.com/javahr/p/8318728.html
     type: 'worker', // 指定所有的 worker 都需要执行
   },
   async task(ctx) {
