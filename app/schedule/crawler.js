@@ -10,7 +10,7 @@ module.exports = {
   },
   async task(ctx) {
 
-    const options = { url: 'http://push2.eastmoney.com/api/qt/stock/get?invt=2&fltt=2&ut=a79f54e3d4c8d44e494efb8f748db291&secid=1.603318&fields=f43,f169,f170,f47,f48,f117,f168,f171,f162,f59,f78,f127,f198,f199,f262,f107&cb=jQuery18302851846236741802_1607868068634&_=1607868068843',
+    const options = { url: 'https://push2.eastmoney.com/api/qt/stock/get?fltt=2&ut=a79f54e3d4c8d44e494efb8f748db291&invt=2&secid=1.600121&fields=f43,f48,f170,f57,f107,f58,f169,f107,f78&cb=qa_wap_jsonpCB1608631269775',
       method: 'GET',
       encoding: null,
       header: {
@@ -21,7 +21,7 @@ module.exports = {
     request(options, async (err, res, body) => {
       if (err) throw err;
       const parseData = JSON.parse(body.toString().match(/\((.+?)\)/g)[0].replace('(', '').replace(')', ''));
-      const title = `派思股份${parseData.data.f43},涨跌价${parseData.data.f169},涨跌幅${parseData.data.f170}`;
+      const title = `郑州煤电${parseData.data.f43},涨跌价${parseData.data.f169},涨跌幅${parseData.data.f170}`;
       const time = new Date();
       const h = time.getHours();
       const m = time.getMinutes();
