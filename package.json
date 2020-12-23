@@ -16,6 +16,7 @@
     "egg-swagger-doc": "^2.3.2",
     "egg-validate": "^2.0.2",
     "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.17",
     "request": "^2.88.2"
   },
   "devDependencies": {
@@ -33,7 +34,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-example",
     "stop": "egg-scripts stop --title=egg-server-example",
-    "dev": "egg-bin dev --env=sit",
+    "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
