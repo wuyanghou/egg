@@ -5,7 +5,8 @@ const request = require('request');
 module.exports = {
   schedule: {
     // interval: '1m', // 1 分钟间隔
-    cron: '0 * 9,15 * * ?', // 9-15:59 每分钟执行一次 https://www.cnblogs.com/javahr/p/8318728.html
+    // cron: '0 * 9,15 * * ?', // 9-15:59 每分钟执行一次 https://www.cnblogs.com/javahr/p/8318728.html
+    cron: '0 * 9,15 * * MON-FRI', //周一至周五 9-15:59 每分钟执行一次 https://www.cnblogs.com/javahr/p/8318728.html
     type: 'all', // 指定所有的 worker 都需要执行
   },
   async task(ctx) {
@@ -38,7 +39,7 @@ module.exports = {
       await ctx.curl('https://sc.ftqq.com/SCU117835Tf59f2299a43d58f3a208f85d8c1240b95f83f10332d72.send', {
         dataType: 'json',
         data: {
-          text: `${title}, ${timeStr}`,
+          text: `${title}`,
           desp: '股票提醒',
         },
       });
