@@ -9,7 +9,7 @@ module.exports = {
   },
   async task(ctx) {
     try{
-      const result = await ctx.curl('https://hq.sinajs.cn/rn=1608731604516&list=s_sh603025');
+      const result = await ctx.curl('https://hq.sinajs.cn/rn=1608731604516&list=s_sh600121');
       const time = new Date();
       const h = time.getHours();
       const m = time.getMinutes();
@@ -20,7 +20,7 @@ module.exports = {
       let d= list[1].replace(/\\n/g, '');
       d= d.replace(';', '').replace('"', '').replace('"', '');
       const data = d.split(',');
-      const title = `大豪科技${Number(data[1])},涨跌价${Number(data[2])},涨跌幅${Number(data[3])}`
+      const title = `郑州煤电${Number(data[1])},涨跌价${Number(data[2])},涨跌幅${Number(data[3])}`
       await ctx.curl('https://sc.ftqq.com/SCU117835Tf59f2299a43d58f3a208f85d8c1240b95f83f10332d72.send', {
         dataType: 'json',
         data: {
