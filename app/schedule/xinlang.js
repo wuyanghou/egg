@@ -25,7 +25,7 @@ module.exports = {
       await ctx.curl('https://sc.ftqq.com/SCU117835Tf59f2299a43d58f3a208f85d8c1240b95f83f10332d72.send', {
         dataType: 'json',
         data: {
-          text: `${title}`,
+          text: `${title}, ${timeStr}`,
           desp: '股票提醒',
         },
       });
