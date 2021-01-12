@@ -11,7 +11,7 @@ module.exports = {
   },
   async task(ctx) {
 
-    const options = { url: 'https://push2.eastmoney.com/api/qt/stock/get?fltt=2&ut=a79f54e3d4c8d44e494efb8f748db291&invt=2&secid=1.600121&fields=f43,f48,f170,f57,f107,f58,f169,f107,f78&cb=qa_wap_jsonpCB1608774618307',
+    const options = { url: 'https://push2.eastmoney.com/api/qt/stock/get?fltt=2&ut=a79f54e3d4c8d44e494efb8f748db291&invt=2&secid=1.600403&fields=f43,f48,f170,f57,f107,f58,f169,f107,f78&cb=qa_wap_jsonpCB1610425547200',
       method: 'GET',
       encoding: null,
       header: {
