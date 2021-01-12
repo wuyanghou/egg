@@ -10,7 +10,7 @@ module.exports = {
   },
   async task(ctx) {
     try{
-      const result = await ctx.curl('https://hq.sinajs.cn/rn=1610425238896&list=sh600403');
+      const result = await ctx.curl('https://hq.sinajs.cn/rn=1610459449329&list=s_sh600403');
       const time = new Date();
       const h = time.getHours();
       const m = time.getMinutes();
